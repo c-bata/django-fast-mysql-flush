@@ -1,5 +1,6 @@
 import time
 
+from django.core.management import call_command
 from django.core.management.color import no_style
 from django.db import connections
 from django.core.management.base import BaseCommand, CommandError
@@ -31,28 +32,8 @@ class Command(BaseCommand):
 
         start = time.time()
 
-        self.style = no_style()
-        database = 'django'
-        connection = connections['default']
-        sql_list = sql_flush(self.style, connection, only_django=True,
-                             reset_sequences=True,
-                             allow_cascade=False)
-
-        print("SQL: ", sql_list)
-
-        try:
-            connection.ops.execute_sql_flush(database, sql_list)
-        except Exception as exc:
-            raise CommandError(
-                "Database %s couldn't be flushed. Possible reasons:\n"
-                "  * The database isn't running or isn't configured correctly.\n"
-                "  * At least one of the expected database tables doesn't exist.\n"
-                "  * The SQL was invalid.\n"
-                "Hint: Look at the output of 'django-admin sqlflush'. "
-                "That's the SQL this command wasn't able to run.\n" % (
-                    connection.settings_dict['NAME'],
-                )
-            ) from exc
+        call_command('flush', verbosity=0, interactive=False,
+                     database='default', reset_sequences=False)
 
         elapsed = time.time() - start
         print(f"elapsed: {elapsed:.3f}")
