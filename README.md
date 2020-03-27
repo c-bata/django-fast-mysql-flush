@@ -145,28 +145,52 @@ $ mysql --host 127.0.0.1 --port 3306 --user django -ppassword -e "show tables";
 ### master (rev-f344c75fb0)
 
 ```
-$ python manage.py bench_sql_flush 10
-...
-elapsed: 3.854
-$ python manage.py bench_sql_flush 100
-...
-elapsed: 3.787
-$ python manage.py bench_sql_flush 999
-...
-elapsed: 3.446
+(venv) $ python manage.py bench_sql_flush 10
+0th elapsed: 3.376
+1th elapsed: 4.016
+2th elapsed: 4.212
+3th elapsed: 3.992
+4th elapsed: 3.869
+elapsed: 3.893 sec (+/- 0.31413987647226255)
+(venv) $ python manage.py bench_sql_flush 100
+0th elapsed: 3.757
+1th elapsed: 3.474
+2th elapsed: 4.844
+3th elapsed: 3.800
+4th elapsed: 3.569
+elapsed: 3.889 sec (+/- 0.5504522162602504)
+(venv) $ python manage.py bench_sql_flush 1000
+0th elapsed: 4.293
+1th elapsed: 3.920
+2th elapsed: 3.622
+3th elapsed: 3.700
+4th elapsed: 4.023
+elapsed: 3.912 sec (+/- 0.2674345091622726)
 ```
 
 ### ticket-31275 branch
 
 ```
-$ python manage.py bench_sql_flush 10
-...
-elapsed: 1.679
-$ python manage.py bench_sql_flush 100
-...
-elapsed: 2.158
-$ python manage.py bench_sql_flush 999
-...
-elapsed: 2.489
+(venv) $ python manage.py bench_sql_flush 10
+0th elapsed: 1.646
+1th elapsed: 1.648
+2th elapsed: 1.638
+3th elapsed: 1.658
+4th elapsed: 1.747
+elapsed: 1.668 sec (+/- 0.044922179237000294)
+(venv) $ python manage.py bench_sql_flush 100
+0th elapsed: 1.773
+1th elapsed: 2.438
+2th elapsed: 2.084
+3th elapsed: 1.788
+4th elapsed: 1.714
+elapsed: 1.959 sec (+/- 0.30377251401954586)
+(venv) $ python manage.py bench_sql_flush 1000
+0th elapsed: 2.319
+1th elapsed: 2.366
+2th elapsed: 2.378
+3th elapsed: 2.459
+4th elapsed: 2.313
+elapsed: 2.367 sec (+/- 0.058665447520015915)
 ```
 
