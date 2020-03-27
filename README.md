@@ -168,29 +168,29 @@ elapsed: 3.889 sec (+/- 0.5504522162602504)
 elapsed: 3.912 sec (+/- 0.2674345091622726)
 ```
 
-### ticket-31275 branch
+### ticket-31275 branch (rev-c3c1470)
 
 ```
 (venv) $ python manage.py bench_sql_flush 10
-0th elapsed: 1.646
-1th elapsed: 1.648
-2th elapsed: 1.638
-3th elapsed: 1.658
-4th elapsed: 1.747
-elapsed: 1.668 sec (+/- 0.044922179237000294)
+0th elapsed: 2.023
+1th elapsed: 1.837
+2th elapsed: 1.791
+3th elapsed: 1.932
+4th elapsed: 1.962
+elapsed: 1.909 sec (+/- 0.09399143936388689)
 (venv) $ python manage.py bench_sql_flush 100
-0th elapsed: 1.773
-1th elapsed: 2.438
-2th elapsed: 2.084
-3th elapsed: 1.788
-4th elapsed: 1.714
-elapsed: 1.959 sec (+/- 0.30377251401954586)
+0th elapsed: 2.149
+1th elapsed: 2.059
+2th elapsed: 2.042
+3th elapsed: 2.169
+4th elapsed: 2.163
+elapsed: 2.116 sec (+/- 0.06102950355064902)
 (venv) $ python manage.py bench_sql_flush 1000
-0th elapsed: 2.319
-1th elapsed: 2.366
-2th elapsed: 2.378
-3th elapsed: 2.459
-4th elapsed: 2.313
-elapsed: 2.367 sec (+/- 0.058665447520015915)
+0th elapsed: 2.852
+1th elapsed: 2.993
+2th elapsed: 3.093
+3th elapsed: 2.779
+4th elapsed: 2.856
+elapsed: 2.915 sec (+/- 0.12635354027361947)
 ```
 
