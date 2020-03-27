@@ -1,10 +1,7 @@
 import time
 
 from django.core.management import call_command
-from django.core.management.color import no_style
-from django.db import connections
-from django.core.management.base import BaseCommand, CommandError
-from django.core.management.sql import sql_flush
+from django.core.management.base import BaseCommand
 from django.utils import timezone
 
 from hello.models import *
@@ -26,9 +23,11 @@ class Command(BaseCommand):
 
             for i, klass in enumerate(question_classes):
                 print("Inserting... ", klass.__name__)
-                for j in range(question_count):
-                    q = klass(question_text=f"test {i} {j}", pub_date=timezone.now())
-                    q.save()
+
+                klass.objects.bulk_create([
+                    klass(question_text=f"question {i} {j}", pub_date=timezone.now())
+                    for j in range(question_count)
+                ])
 
         start = time.time()
 

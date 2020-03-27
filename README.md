@@ -151,6 +151,9 @@ elapsed: 3.854
 $ python manage.py bench_sql_flush 100
 ...
 elapsed: 3.787
+$ python manage.py bench_sql_flush 999
+...
+elapsed: 3.446
 ```
 
 ### ticket-31275 branch
@@ -162,5 +165,8 @@ elapsed: 1.679
 $ python manage.py bench_sql_flush 100
 ...
 elapsed: 2.158
+$ python manage.py bench_sql_flush 999
+...
+elapsed: 2.489
 ```
 
