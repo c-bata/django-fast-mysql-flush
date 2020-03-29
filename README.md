@@ -168,29 +168,56 @@ elapsed: 3.889 sec (+/- 0.5504522162602504)
 elapsed: 3.912 sec (+/- 0.2674345091622726)
 ```
 
-### ticket-31275 branch (rev-c3c1470)
+### ticket-31275 branch (rev-8c65f9f856)
+
+with `reset_sequences=False`
 
 ```
-(venv) $ python manage.py bench_sql_flush 10
-0th elapsed: 2.023
-1th elapsed: 1.837
-2th elapsed: 1.791
-3th elapsed: 1.932
-4th elapsed: 1.962
-elapsed: 1.909 sec (+/- 0.09399143936388689)
+$ python manage.py bench_sql_flush 10
+0th elapsed: 0.669
+1th elapsed: 0.534
+2th elapsed: 0.518
+3th elapsed: 0.493
+4th elapsed: 0.463
+elapsed: 0.535 sec (+/- 0.0797195768792136)
 (venv) $ python manage.py bench_sql_flush 100
-0th elapsed: 2.149
-1th elapsed: 2.059
-2th elapsed: 2.042
-3th elapsed: 2.169
-4th elapsed: 2.163
-elapsed: 2.116 sec (+/- 0.06102950355064902)
+0th elapsed: 0.607
+1th elapsed: 0.555
+2th elapsed: 0.542
+3th elapsed: 0.572
+4th elapsed: 0.622
+elapsed: 0.580 sec (+/- 0.03411013544312636)
 (venv) $ python manage.py bench_sql_flush 1000
-0th elapsed: 2.852
-1th elapsed: 2.993
-2th elapsed: 3.093
-3th elapsed: 2.779
-4th elapsed: 2.856
-elapsed: 2.915 sec (+/- 0.12635354027361947)
+0th elapsed: 1.198
+1th elapsed: 1.123
+2th elapsed: 1.136
+3th elapsed: 1.128
+4th elapsed: 1.073
+elapsed: 1.132 sec (+/- 0.044564402281665624)
 ```
 
+with `reset_sequences=True`
+
+```
+(venv) $ python manage.py bench_sql_flush 10 --reset-sequences
+0th elapsed: 1.912
+1th elapsed: 1.785
+2th elapsed: 1.733
+3th elapsed: 1.729
+4th elapsed: 1.650
+elapsed: 1.762 sec (+/- 0.09680283421863593)
+(venv) $ python manage.py bench_sql_flush 100 --reset-sequences
+0th elapsed: 1.812
+1th elapsed: 1.786
+2th elapsed: 1.784
+3th elapsed: 1.848
+4th elapsed: 1.859
+elapsed: 1.818 sec (+/- 0.03468588048962085)
+(venv) $ python manage.py bench_sql_flush 1000 --reset-sequences
+0th elapsed: 2.363
+1th elapsed: 2.430
+2th elapsed: 2.482
+3th elapsed: 2.556
+4th elapsed: 2.493
+elapsed: 2.465 sec (+/- 0.07246214754639008)
+```
