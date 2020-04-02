@@ -142,82 +142,82 @@ $ mysql --host 127.0.0.1 --port 3306 --user django -ppassword -e "show tables";
 
 ## Benchmark
 
-### master (rev-f344c75fb0)
+### master (rev-b1f88476db)
 
 ```
 (venv) $ python manage.py bench_sql_flush 10
-0th elapsed: 3.376
-1th elapsed: 4.016
-2th elapsed: 4.212
-3th elapsed: 3.992
-4th elapsed: 3.869
-elapsed: 3.893 sec (+/- 0.31413987647226255)
+0th elapsed: 3.381
+1th elapsed: 3.389
+2th elapsed: 3.259
+3th elapsed: 3.256
+4th elapsed: 3.227
+elapsed: 3.302 sec (+/- 0.07654421548104305)
 (venv) $ python manage.py bench_sql_flush 100
-0th elapsed: 3.757
-1th elapsed: 3.474
-2th elapsed: 4.844
-3th elapsed: 3.800
-4th elapsed: 3.569
-elapsed: 3.889 sec (+/- 0.5504522162602504)
+0th elapsed: 3.318
+1th elapsed: 3.341
+2th elapsed: 3.282
+3th elapsed: 3.278
+4th elapsed: 3.394
+elapsed: 3.323 sec (+/- 0.04785021314287499)
 (venv) $ python manage.py bench_sql_flush 1000
-0th elapsed: 4.293
-1th elapsed: 3.920
-2th elapsed: 3.622
-3th elapsed: 3.700
-4th elapsed: 4.023
-elapsed: 3.912 sec (+/- 0.2674345091622726)
+0th elapsed: 3.575
+1th elapsed: 3.509
+2th elapsed: 3.761
+3th elapsed: 3.533
+4th elapsed: 3.504
+elapsed: 3.577 sec (+/- 0.10670887280046382)
 ```
 
-### ticket-31275 branch (rev-8c65f9f856)
+### ticket-31275 branch (rev-99d8419f7d)
 
 with `reset_sequences=False`
 
 ```
-$ python manage.py bench_sql_flush 10
-0th elapsed: 0.669
-1th elapsed: 0.534
-2th elapsed: 0.518
-3th elapsed: 0.493
-4th elapsed: 0.463
-elapsed: 0.535 sec (+/- 0.0797195768792136)
+(venv) $ python manage.py bench_sql_flush 10
+0th elapsed: 0.546
+1th elapsed: 0.502
+2th elapsed: 0.524
+3th elapsed: 0.515
+4th elapsed: 0.498
+elapsed: 0.517 sec (+/- 0.019)
 (venv) $ python manage.py bench_sql_flush 100
-0th elapsed: 0.607
-1th elapsed: 0.555
-2th elapsed: 0.542
-3th elapsed: 0.572
-4th elapsed: 0.622
-elapsed: 0.580 sec (+/- 0.03411013544312636)
+0th elapsed: 0.560
+1th elapsed: 0.567
+2th elapsed: 0.596
+3th elapsed: 0.547
+4th elapsed: 0.607
+elapsed: 0.575 sec (+/- 0.025)
 (venv) $ python manage.py bench_sql_flush 1000
-0th elapsed: 1.198
-1th elapsed: 1.123
-2th elapsed: 1.136
-3th elapsed: 1.128
-4th elapsed: 1.073
-elapsed: 1.132 sec (+/- 0.044564402281665624)
+0th elapsed: 1.023
+1th elapsed: 1.042
+2th elapsed: 1.016
+3th elapsed: 1.066
+4th elapsed: 1.085
+elapsed: 1.046 sec (+/- 0.029)
 ```
 
 with `reset_sequences=True`
 
 ```
 (venv) $ python manage.py bench_sql_flush 10 --reset-sequences
-0th elapsed: 1.912
-1th elapsed: 1.785
-2th elapsed: 1.733
-3th elapsed: 1.729
-4th elapsed: 1.650
-elapsed: 1.762 sec (+/- 0.09680283421863593)
+0th elapsed: 3.719
+1th elapsed: 3.656
+2th elapsed: 3.543
+3th elapsed: 3.745
+4th elapsed: 3.627
+elapsed: 3.658 sec (+/- 0.080)
 (venv) $ python manage.py bench_sql_flush 100 --reset-sequences
-0th elapsed: 1.812
-1th elapsed: 1.786
-2th elapsed: 1.784
-3th elapsed: 1.848
-4th elapsed: 1.859
-elapsed: 1.818 sec (+/- 0.03468588048962085)
+0th elapsed: 3.643
+1th elapsed: 3.627
+2th elapsed: 3.546
+3th elapsed: 3.590
+4th elapsed: 3.451
+elapsed: 3.571 sec (+/- 0.077)
 (venv) $ python manage.py bench_sql_flush 1000 --reset-sequences
-0th elapsed: 2.363
-1th elapsed: 2.430
-2th elapsed: 2.482
-3th elapsed: 2.556
-4th elapsed: 2.493
-elapsed: 2.465 sec (+/- 0.07246214754639008)
+0th elapsed: 3.799
+1th elapsed: 3.704
+2th elapsed: 3.816
+3th elapsed: 3.846
+4th elapsed: 3.902
+elapsed: 3.813 sec (+/- 0.073)
 ```

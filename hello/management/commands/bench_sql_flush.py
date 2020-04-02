@@ -46,4 +46,4 @@ class Command(BaseCommand):
             print(f"{i}th elapsed: {t:.3f}")
             elapsed.append(t)
 
-        print(f"elapsed: {mean(elapsed):.3f} sec (+/- {stdev(elapsed)})")
+        print(f"elapsed: {mean(elapsed):.3f} sec (+/- {stdev(elapsed):.3f})")
